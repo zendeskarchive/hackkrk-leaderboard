@@ -8,6 +8,7 @@ gem 'rails', '3.2.1'
 gem 'pg'
 gem "choices"
 gem "oauth2"
+gem "haml"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,6 +27,7 @@ gem 'jquery-rails'
 group :development do
   gem "rspec"
   gem "rspec-rails"
+  gem "mysql2"
 end
 
 # To use ActiveModel has_secure_password

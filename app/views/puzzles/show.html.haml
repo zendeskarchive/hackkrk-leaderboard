@@ -1,0 +1,10 @@
+%p
+  Name:
+  = @puzzle.name
+%p
+  content:
+  = @puzzle.content
+
+= link_to 'Edit', edit_puzzle_path(@puzzle)
+
+= link_to  'Back', puzzles_path
