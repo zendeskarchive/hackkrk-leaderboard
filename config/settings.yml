@@ -1,0 +1,8 @@
+# settings.yml
+defaults: &defaults
+  github:
+    token: <%= ENV['GITHUB_APP_ID'] %>
+    secret: <%= ENV['GITHUB_SECRET'] %>
+
+development:
+  <<: *defaults
