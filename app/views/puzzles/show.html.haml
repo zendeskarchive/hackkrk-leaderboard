@@ -5,7 +5,9 @@
   content:
   = @puzzle.content
 
-- if current_user
+= link_to  'Back', puzzles_path
+
+- if current_user.admin?
   = link_to 'Edit', edit_puzzle_path(@puzzle)
 
-  = link_to  'Back', puzzles_path
+
