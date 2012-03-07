@@ -16,3 +16,5 @@
 
 # Config files
 config/database.yml
+
+/bin
