@@ -9,3 +9,6 @@ defaults: &defaults
 
 development:
   <<: *defaults
+
+production:
+  <<: *defaults
