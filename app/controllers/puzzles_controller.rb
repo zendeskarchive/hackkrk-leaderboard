@@ -80,4 +80,12 @@ class PuzzlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def take_a_guess
+    @puzzle = Puzzle.find(params[:id])
+    Guess.validate_answer(@puzzle)
+    redirect_to @puzzle
+  end
+
 end
