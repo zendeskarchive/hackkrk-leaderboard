@@ -3,6 +3,9 @@ defaults: &defaults
   github:
     token: <%= ENV['GITHUB_APP_ID'] %>
     secret: <%= ENV['GITHUB_SECRET'] %>
+  twitter:
+    token: <%= ENV['TWITTER_TOKEN'] %>
+    secret: <%= ENV['TWITTER_SECRET'] %>
 
 development:
   <<: *defaults
