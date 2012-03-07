@@ -10,6 +10,7 @@ class Oauth::GithubController < ApplicationController
   def create
     token = User::Github.client.auth_code.get_token(params[:code], :redirect_uri => User::Github.redirect_uri(request))
     token.client.site = 'https://api.github.com'
+
     if token and access_token = token.token
       if user = User.find_by_access_token(access_token)
         session[:user_id] = user.id
@@ -18,11 +19,11 @@ class Oauth::GithubController < ApplicationController
         session[:user_id] = user.id
         redirect_to '/'
       else
-        render :text => "OOPS!"
+        redirect_to '/login', :error => 'Could not log you in, please try again'
       end
 
     else
-      render :text => "OOPS!"
+      redirect_to '/login', :error => 'Could not log you in, please try again'
     end
 
   end
