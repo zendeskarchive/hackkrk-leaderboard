@@ -1,5 +1,17 @@
 @import "mixins.sass"
 
+.navbar
+  ul
+    li
+      span.inactive
+        float: none
+        display: block
+        padding: 10px 10px 11px
+        line-height: 19px
+        color: #fff
+        text-decoration: none
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
+
 .login
   h1
     text-align: center
@@ -17,3 +29,15 @@
       margin: 0 20px
       img
         vertical-align: middle
+
+.hero-unit
+
+  h1
+    line-height: 100px
+  span
+    line-height: 100px
+  img
+    vertical-align: middle
+    width: 80
+    @include rounded(40px)
+    box-shadow: 2px 2px 2px #999
