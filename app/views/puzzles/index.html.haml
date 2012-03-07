@@ -1,16 +1,9 @@
-%h1 Listing puzzles
-%table
-  %tr
-    %th
-    %th
-    %th
-    %th
-    %th
-  - @puzzles.each do |puzzle|
-    %tr
-      %td= puzzle.name
-      %td= puzzle.content
-      %td= link_to 'Edit', edit_puzzle_path(puzzle)
-      %td= link_to 'Destroy', puzzle, confirm: 'Are you sure?', method: :delete
+
+- @puzzles.each do |puzzle|
+  %h3.puzzle
+    = link_to puzzle.name, puzzle, :class => 'puzzle'
+
+    = link_to 'Edit', edit_puzzle_path(puzzle)
+    = link_to 'Destroy', puzzle, confirm: 'Are you sure?', method: :delete
 %br/
 = link_to 'New Puzzle', new_puzzle_path

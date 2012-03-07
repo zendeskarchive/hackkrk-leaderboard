@@ -1,0 +1,112 @@
+@import "_shared.sass"
+
+body
+  background: url('/assets/bg-noise.jpg') repeat
+  color: $font-color
+
+h1, h2, h3
+  color: $font-color
+  font-weight: normal
+
+.grey-bottom-bar
+  border-bottom: 1px solid #ddd
+
+article
+  p, li
+    font-size: 18px
+    line-height: 1.4em
+
+.stay-right
+  position: fixed
+  right: 0
+  top: 110px
+
+#header
+  background: url('/assets/bg-noise.jpg') repeat
+  font-size: 1.1em
+  margin-top: 15px
+  margin-bottom: 25px
+  border-bottom: 1px solid $light-gray
+
+  .logo
+    margin-bottom: 10px
+  .nav
+    text-transform: uppercase
+    padding: 0
+    border: 0
+    margin: 0
+    margin-top: 13px
+
+    li
+      padding: 5px 0 5px 20px
+
+    a
+      color: #333
+      @include rounded(0px)
+      padding: 3px 0 5px 0
+
+      &:hover
+        border-bottom: 5px solid $main-color
+
+      &.active
+        border-bottom: 5px solid $light-gray
+
+      &.active:hover
+        border-bottom: 5px solid $main-color
+
+.clear
+  clear: both
+
+#slogan
+  font-size: 1.2em
+  color: $font-color
+  margin-bottom: 40px
+
+.welcome
+  opacity: 0.7
+  margin-bottom: 25px
+  div
+    display: none
+
+@import "shared/github.sass"
+@import "shared/twitter.sass"
+
+h2.post-title
+  color: #08C
+
+.bottom-space
+  padding-bottom: 30px
+
+
+@media (min-width: 480px) and (max-width: 767px)
+  #header
+    .nav
+      margin: 0
+      float: left
+      clear: left
+      li
+        padding: 5px 20px 5px 0 !important
+
+@media (max-width: 480px)
+  #header
+    .nav
+      margin: 0
+      float: left
+      li
+        padding: 5px 20px 5px 0 !important
+
+  .logo
+    padding-bottom: 0px
+    padding-right: 40px
+    float: left
+
+@media (max-width: 767px)
+  #header
+    .nav
+      margin: 0
+  #header
+    .logo
+      padding-bottom: 0px
+      float: left
+
+
