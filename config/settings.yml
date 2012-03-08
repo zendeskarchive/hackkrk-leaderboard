@@ -11,4 +11,4 @@ development:
   <<: *defaults
 
 production:
-  <<: *defaultsgi
+  <<: *defaults
