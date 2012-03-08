@@ -20,6 +20,10 @@ function addContestantEntry(target, standing, contestant) {
   var rowClass = '';
   if (standing == 1)
     rowClass += 'first';
+  if (standing == 2)
+    rowClass += 'second';
+  if (standing == 3)
+    rowClass += 'third';
   var source = $("#score-template").html();
   var template = Handlebars.compile(source);
   var context = { standing: standing, rowClass: rowClass, name: contestant.name, score: contestant.score }

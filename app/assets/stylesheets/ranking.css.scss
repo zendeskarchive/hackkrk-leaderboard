@@ -20,8 +20,9 @@ body {
     tbody {
 
       td {
-        line-height: 30px;
-        font-size: 18px;
+        font-size: 14px;
+        line-height: 20px;
+
         text-align: center;
 
         &.name {
@@ -34,9 +35,17 @@ body {
 
         &.first td {
           line-height: 50px;
-          font-size: 30px;
+          font-size: 36px;
           background-color: #BCE8F1;
           color: #3A87AD;
+        }
+        &.second td {
+          line-height: 36px;
+          font-size: 24px;
+        }
+        &.third td {
+          line-height: 32px;
+          font-size: 20px;
         }
       }
     }
