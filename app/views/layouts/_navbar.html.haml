@@ -1,0 +1,13 @@
+.navbar
+  .navbar-inner
+    .container
+      %a.brand{:href => "/"} Hackstrap
+      .nav-collapse
+        %ul.nav
+          %li
+            %span.inactive
+              Logged in via
+              %b= current_user.provider
+          %li.divider-vertical
+          %li
+            %a{ :href => '/logout'} Logout
