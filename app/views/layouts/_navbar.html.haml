@@ -9,8 +9,7 @@
               Logged in via
               %b= current_user.provider
           %li.divider-vertical
-          - if current_user.admin?
-            %li
-              %a{ :href => '/puzzles'} Puzzles
+          %li
+            %a{ :href => '/puzzles'} Puzzles
           %li
             %a{ :href => '/logout'} Logout
