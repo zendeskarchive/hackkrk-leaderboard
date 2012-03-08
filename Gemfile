@@ -10,6 +10,7 @@ gem "choices"
 gem "oauth2"
 gem "oauth"
 gem "haml"
+gem "redcarpet"
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,5 +1,5 @@
 %h3
-  = @puzzle.content
+  = markdown @puzzle.content
 
 - if current_user.guessed?(@puzzle)
   %h1 YOU GOT IT!
