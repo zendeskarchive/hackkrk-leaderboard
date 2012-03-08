@@ -1,8 +1,8 @@
 $(document).ready(function() {
   refreshStandings();
-  //setInterval( function() {
-  //  refreshStandings();
-  //}, 5000);
+  setInterval( function() {
+    refreshStandings();
+  }, 5000);
 });
 
 function refreshStandings() {
