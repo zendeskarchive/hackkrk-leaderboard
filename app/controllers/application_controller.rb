@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def authenticate_admin
+    unless @current_user.admin?
+      redirect_to '/'
+    end
+  end
+
 end

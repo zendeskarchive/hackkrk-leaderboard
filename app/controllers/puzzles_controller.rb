@@ -1,4 +1,6 @@
 class PuzzlesController < ApplicationController
+  before_filter :authenticate_admin
+
   # GET /puzzles
   # GET /puzzles.json
   def index
