@@ -10,4 +10,4 @@
       %td ..
 
 %script{ :id => "score-template", :type => "text/x-handlebars-template" }
-  == <tr class="entry {{ rowClass }}"><td>{{ standing }}</td><td class="name">{{ name }}</td><td>{{ score }}</td></tr>
+  == <tr class="entry {{ rowClass }}"><td>{{ standing }}</td><td class="name"><a href="/users/{{user_id}}">{{ name }}</a></td><td>{{ score }}</td></tr>

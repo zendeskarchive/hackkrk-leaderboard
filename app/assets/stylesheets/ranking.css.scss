@@ -25,6 +25,10 @@ body {
 
         text-align: center;
 
+        a {
+          color: #333;
+        }
+
         &.name {
           font-weight: bold;
         }
@@ -38,6 +42,9 @@ body {
           font-size: 36px;
           background-color: #BCE8F1;
           color: #3A87AD;
+          a {
+            color: #3A87AD;
+          }
         }
         &.second td {
           line-height: 36px;

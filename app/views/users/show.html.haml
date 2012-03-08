@@ -1,0 +1,20 @@
+.hero-unit.home
+
+  %h1
+    %img{:src => @user.avatar_url}
+    %span= @user.username
+  - if @user.provider == 'github'
+    %p
+      %a{ :href => "https://github.com/#{@user.username}"}
+        == See #{@user.username}'s GitHub profile
+
+  - if @user.provider == 'twitter'
+    %p
+      %a{ :href => "https://twitter.com/#{@user.username}"}
+        == See #{@user.username}'s Twitter profile
+
+%h2 Answered puzzles:
+- @user.guesses.solved.each do |guess|
+  %h3
+    %a{ :href => puzzle_path(guess.puzzle)}
+      = guess.puzzle.name

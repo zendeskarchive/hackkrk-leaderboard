@@ -27,7 +27,7 @@ function addContestantEntry(target, standing, contestant) {
     rowClass += 'third';
   var source = $("#score-template").html();
   var template = Handlebars.compile(source);
-  var context = { standing: standing, rowClass: rowClass, name: contestant.name, score: contestant.score }
+  var context = { user_id: contestant.user_id, standing: standing, rowClass: rowClass, name: contestant.name, score: contestant.score }
   var newRow = $(template(context));
   // target.append(newRow);
   return '<tr class="entry '+rowClass+'">' + newRow.html() + '</tr>'

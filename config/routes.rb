@@ -6,6 +6,8 @@ Hackstrap::Application.routes.draw do
     end
   end
 
+  resources :users
+
   get "/oauth/github" => 'oauth/github#new'
   get "/oauth/github/callback" => 'oauth/github#create'
 
