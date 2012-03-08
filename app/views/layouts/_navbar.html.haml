@@ -5,7 +5,7 @@
       .nav-collapse
         %ul.nav
           %li
-            %span.inactive
+            %a.home{ :href => '/'} 
               Logged in via
               %b= current_user.provider
           %li.divider-vertical
@@ -13,5 +13,6 @@
             %a{ :href => '/rankings'} Ranking
           %li
             %a{ :href => '/puzzles'} Puzzles
+          %li.divider-vertical
           %li
             %a{ :href => '/logout'} Logout

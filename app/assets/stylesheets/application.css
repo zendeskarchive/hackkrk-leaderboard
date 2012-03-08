@@ -28,3 +28,7 @@
   -moz-transition: all .2s linear;
   transition: all .2s linear;
 }
+
+#twtr-widget-1 .twtr-doc {
+  margin-top: 0;
+}
