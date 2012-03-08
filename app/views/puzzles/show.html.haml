@@ -1,20 +1,30 @@
-%h3
-  = markdown @puzzle.content
+%ul.breadcrumb
+  %li
+    %a{:href => "/"} Home
+    %span.divider /
+  %li
+    %a{:href => "/puzzles"} Puzzles
+    %span.divider /
+  %li.active
+    %a{:href => "/puzzles/#{@puzzle.id}"}= @puzzle.name
 
-- if current_user.guessed?(@puzzle)
-  %h1 YOU GOT IT!
-- else
-  = form_tag("/puzzles/#{@puzzle.id}/take_a_guess", :method => :put) do
-    %p
-      = label_tag :guess
-      %br
-      = text_area_tag :guess
+.puzzle
+  %h1= @puzzle.name
+  .content= markdown @puzzle.content
+  - if current_user.admin?
+    = link_to 'Edit', edit_puzzle_path(@puzzle), :class => 'btn'
+    = link_to 'Destroy', @puzzle, confirm: 'Are you sure?', method: :delete, :class => 'btn'
 
-    = submit_tag
+  .answer
+    - if current_user.guessed?(@puzzle)
+      .hero-unit
+        %h1 
+          %span.green &#10003; 
+          You got it!
+    - else
+      = form_tag("/puzzles/#{@puzzle.id}/take_a_guess", :method => :put) do
+        %h3
+          Enter your answer here:
+        = text_area_tag :guess
 
-= link_to  'Back', puzzles_path
-
-- if current_user.admin?
-  = link_to 'Edit', edit_puzzle_path(@puzzle)
-
-
+        = submit_tag "Submit answer", :class => 'btn btn-primary'

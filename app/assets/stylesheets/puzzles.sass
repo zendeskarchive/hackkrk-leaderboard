@@ -1,13 +1,13 @@
 @import "_shared.sass"
 
+.actions
+  text-align: right
+  margin-bottom: 10px
+form
+  .actions
+    text-align: left
 .festival
   margin: 30px 0px
-
-h3
-  a.puzzle
-    line-height: 32px
-    font-size: 24px
-    color: $font-color
 
 textarea
   width: 600px
@@ -16,5 +16,32 @@ textarea
 input[type='text']
   width: 600px
 
+.puzzles
+  h3    
+    a.puzzle
+      line-height: 32px
+      font-size: 24px
+      color: $font-color
+
+.puzzle
+  h1
+    a.puzzle
+      line-height: 32px
+      font-size: 24px
+      color: $font-color
+
+  .content
+    border: 1px solid #ccc
+    padding: 5px
+    background-color: #fefefe
+    margin: 10px 0px
+
+
+.answer
+  margin: 10px 0px
+  h1
+    font-weight: bold
+    .green
+      color: green
 .puzzle.done
   text-decoration: line-through
