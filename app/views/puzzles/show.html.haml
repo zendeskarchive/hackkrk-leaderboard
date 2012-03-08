@@ -28,7 +28,7 @@
     %b
       = @puzzle.guesses.solved.count
     users:
-    = raw @puzzle.guesses.solved.collect { |guess| link_to(guess.user.username, user_path(guess.user)) }.join(',')
+    = raw @puzzle.guesses.solved.collect { |guess| link_to(guess.user.username, user_path(guess.user)) }.join(', ')
   .content= markdown @puzzle.content
   - if current_user.admin?
     = link_to 'Edit', edit_puzzle_path(@puzzle), :class => 'btn'
