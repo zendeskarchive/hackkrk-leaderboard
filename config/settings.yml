@@ -1,5 +1,6 @@
 # settings.yml
 defaults: &defaults
+  secret_token: <%= ENV['RAILS_SECRET_TOKEN'] %>
   github:
     token: <%= ENV['GITHUB_APP_ID'] %>
     secret: <%= ENV['GITHUB_SECRET'] %>
