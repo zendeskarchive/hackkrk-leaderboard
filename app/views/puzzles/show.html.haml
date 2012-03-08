@@ -23,6 +23,11 @@
       Submitted by
       %b
         = @puzzle.user.username
+  .solved
+    Solved by
+    %b
+      = @puzzle.guesses.solved.count
+    users
   .content= markdown @puzzle.content
   - if current_user.admin?
     = link_to 'Edit', edit_puzzle_path(@puzzle), :class => 'btn'
