@@ -4,7 +4,7 @@ $(document).ready(function() {
   refreshStandings();
   setInterval( function() {
     refreshStandings();
-  }, 5000);
+  }, 30000);
 });
 
 function refreshStandings() {
