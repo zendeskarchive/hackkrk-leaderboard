@@ -20,5 +20,5 @@ config/database.yml
 /bin
 
 .DS_Store
-
 coverage
+.sass-cache

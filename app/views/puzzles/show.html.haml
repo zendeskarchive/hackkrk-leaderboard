@@ -1,11 +1,20 @@
-%p
-  Name:
-  = @puzzle.name
-%p
-  content:
+%h3
   = @puzzle.content
 
-- if current_user
+- if current_user.guessed?(@puzzle)
+  %h1 YOU GOT IT!
+- else
+  = form_tag("/puzzles/#{@puzzle.id}/take_a_guess", :method => :put) do
+    %p
+      = label_tag :guess
+      %br
+      = text_area_tag :guess
+
+    = submit_tag
+
+= link_to  'Back', puzzles_path
+
+- if current_user.admin?
   = link_to 'Edit', edit_puzzle_path(@puzzle)
 
-  = link_to  'Back', puzzles_path
+

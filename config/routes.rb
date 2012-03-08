@@ -1,6 +1,10 @@
 Hackstrap::Application.routes.draw do
 
-  resources :puzzles
+  resources :puzzles do
+    member do
+      put 'take_a_guess'
+    end
+  end
 
   get "/oauth/github" => 'oauth/github#new'
   get "/oauth/github/callback" => 'oauth/github#create'
@@ -10,6 +14,9 @@ Hackstrap::Application.routes.draw do
 
   get "/login" => 'oauth/sessions#new'
   get "/logout" => 'oauth/sessions#destroy'
+
+  get "/ranking" => 'rankings#show'
+  get "/api/rankings" => 'api/rankings#scoresheet'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

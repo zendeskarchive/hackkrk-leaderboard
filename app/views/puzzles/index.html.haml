@@ -1,9 +1,13 @@
 
-- @puzzles.each do |puzzle|
+- @puzzles.each_with_index do |puzzle, index|
   %h3.puzzle
-    = link_to puzzle.name, puzzle, :class => 'puzzle'
+    = (index + 1).to_s + '. '
+    - guessed_class = current_user.guessed?(puzzle) ? "done" : ''
+    = link_to puzzle.name, puzzle, :class => "puzzle #{guessed_class}"
+    - if current_user.admin?
+      = link_to 'Edit', edit_puzzle_path(puzzle)
+      = link_to 'Destroy', puzzle, confirm: 'Are you sure?', method: :delete
 
-    = link_to 'Edit', edit_puzzle_path(puzzle)
-    = link_to 'Destroy', puzzle, confirm: 'Are you sure?', method: :delete
-%br/
-= link_to 'New Puzzle', new_puzzle_path
+- if current_user.admin?
+  %br
+  = link_to 'New Puzzle', new_puzzle_path

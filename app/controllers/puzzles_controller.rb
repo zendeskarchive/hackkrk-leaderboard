@@ -1,5 +1,6 @@
 class PuzzlesController < ApplicationController
-  before_filter :authenticate_admin
+
+  before_filter :is_admin?, :only => [:new, :create, :update]
 
   # GET /puzzles
   # GET /puzzles.json
@@ -82,4 +83,12 @@ class PuzzlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def take_a_guess
+    @puzzle = Puzzle.find(params[:id])
+    Guess.validate_answer(@puzzle, params[:guess], current_user)
+    redirect_to @puzzle
+  end
+
 end
