@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  if (window.location.pathname != '/rankings') return;
+  if (window.location.pathname != '/rankings' &&
+      window.location.pathname != '/') return;
   refreshStandings();
   setInterval( function() {
     refreshStandings();
