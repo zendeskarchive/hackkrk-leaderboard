@@ -1,8 +1,8 @@
 $(document).ready(function() {
   refreshStandings();
-  setInterval( function() {
-    refreshStandings();
-  }, 5000);
+  //setInterval( function() {
+  //  refreshStandings();
+  //}, 5000);
 });
 
 function refreshStandings() {
@@ -19,7 +19,10 @@ function addContestantEntry(target, standing, contestant) {
   var rowClass = '';
   if (standing == 1)
     rowClass += 'first';
-  var newRow = jQuery('<tr class="' + rowClass + '"><td>' + standing + '</td><td>' + contestant.name + '</td><td>' + contestant.score + '</td></tr>').hide();
+  var source = $("#score-template").html();
+  var template = Handlebars.compile(source);
+  var context = { standing: standing, rowClass: rowClass, name: contestant.name, score: contestant.score }
+  var newRow = $(template(context)).hide();
   target.append(newRow);
 };
 
@@ -30,7 +33,6 @@ function getStandingsSheet() {
 function updateStandings(rankingBody) {
   var scoreSheet = [];
   $.getJSON( '/api/rankings.json', function(response) {
-    console.log(response);
     scoreSheet = response;
     for(var position in scoreSheet) {
       var contestant = scoreSheet[position];
