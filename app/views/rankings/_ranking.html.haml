@@ -1,12 +1,13 @@
-%table.table-bordered.table-striped#standings
-  %tr
-    %th.rank
-    %th.name  Name
-    %th.count Score
-  %tr
-    %td ..
-    %td ..
-    %td ..
+#ranking
+  %table.table-bordered.table-striped#standings
+    %tr.header
+      %th.rank
+      %th.name  Name
+      %th.count Score
+    %tr.entry
+      %td ..
+      %td ..
+      %td ..
 
 %script{ :id => "score-template", :type => "text/x-handlebars-template" }
-  == <tr class="{{ rowClass }}"><td>{{ standing }}</td><td class="name">{{ name }}</td><td>{{ score }}</td></tr>
+  == <tr class="entry {{ rowClass }}"><td>{{ standing }}</td><td class="name">{{ name }}</td><td>{{ score }}</td></tr>

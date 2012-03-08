@@ -8,13 +8,13 @@ $(document).ready(function() {
 });
 
 function refreshStandings() {
-    var rankingBody = $('#standings tbody');
-    clearStandings(rankingBody);
-    updateStandings(rankingBody);
+    var rankingTable = $('#standings');
+    clearStandings(rankingTable);
+    updateStandings(rankingTable);
 };
 
 function clearStandings(rankingBody) {
-  rankingBody.hide('').html('').show();
+  rankingBody.find('tr.entry').remove();
 };
 
 function addContestantEntry(target, standing, contestant) {
@@ -28,8 +28,9 @@ function addContestantEntry(target, standing, contestant) {
   var source = $("#score-template").html();
   var template = Handlebars.compile(source);
   var context = { standing: standing, rowClass: rowClass, name: contestant.name, score: contestant.score }
-  var newRow = $(template(context)).hide();
-  target.append(newRow);
+  var newRow = $(template(context));
+  // target.append(newRow);
+  return '<tr class="entry '+rowClass+'">' + newRow.html() + '</tr>'
 };
 
 function getStandingsSheet() {
@@ -38,20 +39,24 @@ function getStandingsSheet() {
 
 function updateStandings(rankingBody) {
   var scoreSheet = [];
+  var html = "<table class='table-bordered table-striped' id='standings'><tr class='header'><th class='rank'></th><th class='name'>Name</th><th class='count'>Score</th></tr>"
   $.getJSON( '/api/rankings.json', function(response) {
     scoreSheet = response;
     for(var position in scoreSheet) {
       var contestant = scoreSheet[position];
       var standing = parseInt(position) + 1;
-      addContestantEntry(rankingBody, standing, contestant);
+      html += addContestantEntry(rankingBody, standing, contestant);
     }
-    revealStandings(rankingBody);
+    html += '</table>'
+    $('#ranking').html(html)
+    revealStandings();
   })
+
 };
 
 function revealStandings(rankingBody) {
-  $.each(rankingBody.find('tr'), function(index, element) {
-    setTimeout(function() { $(element).show('slow'); }, 100*index)
+  $('#ranking tr.entry').each(function(index, element) {
+    setTimeout(function() { $(this).show('slow'); }, 100*index)
   })
 }
 
