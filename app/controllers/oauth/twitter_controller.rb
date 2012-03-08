@@ -33,17 +33,3 @@ class Oauth::TwitterController < ApplicationController
   end
 
 end
-
-
-# @consumer=OAuth::Consumer.new( "key","secret", {
-#     :site=>"https://agree2"
-#     })
-# Start the process by requesting a token
-
-# @request_token=@consumer.get_request_token
-# session[:request_token]=@request_token
-# redirect_to @request_token.authorize_url
-# When user returns create an access_token
-
-# @access_token=@request_token.get_access_token
-# @photos=@access_token.get('/photos.xml')

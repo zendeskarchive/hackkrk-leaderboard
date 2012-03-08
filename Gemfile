@@ -28,6 +28,7 @@ gem 'jquery-rails'
 group :development do
   gem "rspec"
   gem "rspec-rails"
+  gem "simplecov"
 end
 
 # To use ActiveModel has_secure_password
