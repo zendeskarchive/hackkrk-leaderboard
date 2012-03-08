@@ -18,6 +18,7 @@
 
 .puzzle
   %h1= @puzzle.name
+  .author= @puzzle.user.try(:username)
   .content= markdown @puzzle.content
   - if current_user.admin?
     = link_to 'Edit', edit_puzzle_path(@puzzle), :class => 'btn'
