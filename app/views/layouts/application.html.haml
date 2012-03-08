@@ -4,6 +4,7 @@
     %title Hackstrap
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
+    = javascript_include_tag "handlebars-1.0.0.beta.6.js"
     = csrf_meta_tags
   %body
     - if current_user and controller_name != 'sessions'

@@ -1,8 +1,6 @@
 .page-header
   %h1
-    Rankings
-    %small go!
-
+    Current Standings
 
 %table.table-bordered.table-striped#standings
   %thead
@@ -11,3 +9,10 @@
       %th.name  Name
       %th.count Score
   %tbody
+    %tr
+      %td ..
+      %td ..
+      %td ..
+
+%script{ :id => "score-template", :type => "text/x-handlebars-template" }
+  == <tr class="{{ rowClass }}"><td>{{ standing }}</td><td class="name">{{ name }}</td><td>{{ score }}</td></tr>

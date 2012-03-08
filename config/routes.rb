@@ -15,7 +15,7 @@ Hackstrap::Application.routes.draw do
   get "/login" => 'oauth/sessions#new'
   get "/logout" => 'oauth/sessions#destroy'
 
-  get "/ranking" => 'rankings#show'
+  get "/rankings" => 'rankings#show'
   get "/api/rankings" => 'api/rankings#scoresheet'
 
   # The priority is based upon order of creation:
