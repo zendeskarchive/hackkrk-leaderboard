@@ -3,6 +3,7 @@ body {
   line-height: 20px;
 
   table#standings {
+    background-color: #fff;
     width: 100%;
     margin: 0 auto;
 
@@ -19,6 +20,8 @@ body {
     tbody {
 
       td {
+        line-height: 30px;
+        font-size: 18px;
         text-align: center;
 
         &.name {
@@ -30,7 +33,10 @@ body {
         height: 30px;
 
         &.first td {
-          background-color: #7CA200;
+          line-height: 50px;
+          font-size: 30px;
+          background-color: #BCE8F1;
+          color: #3A87AD;
         }
       }
     }
