@@ -1,4 +1,6 @@
 class PuzzlesController < ApplicationController
+
+  before_filter :is_admin?, :only => [:new, :create, :update]
   # GET /puzzles
   # GET /puzzles.json
   def index

@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   def guessed?(puzzle)
     !Guess.where(:puzzle_id => puzzle.id, :user_id => self.id, :correct => true).empty?
   end
+
 end
