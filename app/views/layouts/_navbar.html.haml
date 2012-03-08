@@ -5,9 +5,11 @@
       .nav-collapse
         %ul.nav
           %li
-            %a.home{ :href => '/'} 
-              Logged in via
-              %b= current_user.provider
+            %a.home{ :href => '/'}
+              %img{:src => current_user.avatar_url}
+              Hello,
+              = current_user.username
+              = image_tag "logos/icon-#{current_user.provider}.png"
           %li.divider-vertical
           %li
             %a{ :href => '/rankings'} Ranking
