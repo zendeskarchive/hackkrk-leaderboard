@@ -22,8 +22,6 @@ class Oauth::TwitterController < ApplicationController
       elsif user = User::Twitter.create_user(token, access_token)
         session[:user_id] = user.id
         redirect_to '/'
-      else
-        redirect_to '/login', :error => 'Could not log you in, please try again'
       end
 
     else

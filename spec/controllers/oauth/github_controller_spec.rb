@@ -8,6 +8,7 @@ describe Oauth::GithubController do
       stub_chain(:client, :auth_code).
       and_return(@client)
   end
+
   describe '#new' do
 
     it "redirects to github" do
