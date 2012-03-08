@@ -15,7 +15,7 @@ class Oauth::TwitterController < ApplicationController
     token = @request_token.get_access_token
 
     if token
-      access_token = "#{token.token}:#{token.secret}"
+      access_token = token.token
       if user = User.find_by_access_token(access_token)
         session[:user_id] = user.id
         redirect_to '/'
