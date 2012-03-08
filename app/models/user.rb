@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     Guess.where(:user_id => self.id, :correct => true).select('distinct(puzzle_id)').count
   end
 
+  def guess_count_for_puzzle(puzzle)
+    Guess.where(:puzzle_id => puzzle.id, :user_id => self.id).count
+  end
+
 end

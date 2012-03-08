@@ -8,6 +8,14 @@
   %li.active
     %a{:href => "/puzzles/#{@puzzle.id}"}= @puzzle.name
 
+- if flash[:notice]
+  .alert.alert-success
+    = flash[:notice]
+
+- if flash[:error]
+  .alert.alert-error
+    = flash[:error]
+
 .puzzle
   %h1= @puzzle.name
   .content= markdown @puzzle.content
@@ -18,13 +26,23 @@
   .answer
     - if current_user.guessed?(@puzzle)
       .hero-unit
-        %h1 
+        %h1
           %span.green &#10003; 
           You got it!
+        %p 
+          You gave a correct answer after
+          = current_user.guess_count_for_puzzle(@puzzle)
+          guesses
     - else
+
       = form_tag("/puzzles/#{@puzzle.id}/take_a_guess", :method => :put) do
         %h3
           Enter your answer here:
+        - if (count = current_user.guess_count_for_puzzle(@puzzle)) > 0
+          %p
+            You have tried
+            = count
+            times so far.
         = text_area_tag :guess
 
         = submit_tag "Submit answer", :class => 'btn btn-primary'
