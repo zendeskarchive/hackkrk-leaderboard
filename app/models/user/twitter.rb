@@ -21,7 +21,7 @@ class User
         :avatar_url   => twitter_user['profile_image_url_https']
       })
       user.access_token = token_object.token
-      user.provider     = 'github'
+      user.provider     = 'twitter'
       user.save
       user
     end
