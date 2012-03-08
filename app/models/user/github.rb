@@ -18,10 +18,10 @@ class User
       github_user = token_object.get('/user').parsed
       user = User.new({
         :username     => github_user['login'],
-        :access_token => token_object.token,
-        :avatar_url   => github_user['avatar_url'],
-        :provider     => 'github'
+        :avatar_url   => github_user['avatar_url']
       })
+      user.access_token = token_object.token
+      user.provider     = 'github'
       user.save
       user
     end

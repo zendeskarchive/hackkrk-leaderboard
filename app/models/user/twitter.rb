@@ -18,10 +18,10 @@ class User
       twitter_user = JSON.parse(json)
       user = User.new({
         :username     => twitter_user['screen_name'],
-        :access_token => access_token,
-        :avatar_url   => twitter_user['profile_image_url_https'],
-        :provider     => 'twitter'
+        :avatar_url   => twitter_user['profile_image_url_https']
       })
+      user.access_token = token_object.token
+      user.provider     = 'github'
       user.save
       user
     end
