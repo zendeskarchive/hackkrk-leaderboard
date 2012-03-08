@@ -31,8 +31,9 @@
           You got it!
         %p 
           You gave a correct answer after
-          = current_user.guess_count_for_puzzle(@puzzle)
-          guesses
+          - count = current_user.guess_count_for_puzzle(@puzzle)
+          = count
+          = count == 1 ? "guess" ? "guesses"
     - else
 
       = form_tag("/puzzles/#{@puzzle.id}/take_a_guess", :method => :put) do
