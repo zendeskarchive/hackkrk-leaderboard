@@ -84,7 +84,7 @@ class PuzzlesController < ApplicationController
 
   def take_a_guess
     @puzzle = Puzzle.find(params[:id])
-    Guess.validate_answer(@puzzle)
+    Guess.validate_answer(@puzzle, params[:guess], current_user)
     redirect_to @puzzle
   end
 

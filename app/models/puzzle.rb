@@ -1,4 +1,4 @@
 class Puzzle < ActiveRecord::Base
-  attr_accessor :guess
+  has_many :guesses
 end
 

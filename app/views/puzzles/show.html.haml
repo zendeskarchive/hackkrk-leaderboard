@@ -1,16 +1,16 @@
 %h3
   = @puzzle.content
 
-= form_for(@puzzle, :url => "/puzzles/#{@puzzle.id}/take_a_guess") do |f|
-  %p
-    = f.label :guess
-    %br
-    = f.text_area :guess
+- if current_user.guessed?(@puzzle)
+  %h1 YOU GOT IT!
+- else
+  = form_tag("/puzzles/#{@puzzle.id}/take_a_guess", :method => :put) do
+    %p
+      = label_tag :guess
+      %br
+      = text_area_tag :guess
 
-  = f.submit
-
-
-
+    = submit_tag
 
 = link_to  'Back', puzzles_path
 
