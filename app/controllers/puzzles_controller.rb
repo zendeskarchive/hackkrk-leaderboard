@@ -44,7 +44,7 @@ class PuzzlesController < ApplicationController
   # POST /puzzles.json
   def create
     @puzzle = Puzzle.new(params[:puzzle])
-
+    @puzzle.user_id = current_user.id
     respond_to do |format|
       if @puzzle.save
         format.html { redirect_to @puzzle, notice: 'Puzzle was successfully created.' }
