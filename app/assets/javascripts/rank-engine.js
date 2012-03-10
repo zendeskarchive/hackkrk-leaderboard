@@ -9,7 +9,6 @@ $(document).ready(function() {
 
 function refreshStandings() {
     var rankingTable = $('#standings');
-    clearStandings(rankingTable);
     updateStandings(rankingTable);
 };
 
@@ -41,6 +40,7 @@ function updateStandings(rankingBody) {
   var scoreSheet = [];
   var html = "<table class='table-bordered table-striped' id='standings'><tr class='header'><th class='rank'></th><th class='name'>Name</th><th class='count'>Score</th></tr>"
   $.getJSON( '/api/rankings.json', function(response) {
+    clearStandings(rankingBody);
     scoreSheet = response;
     for(var position in scoreSheet) {
       var contestant = scoreSheet[position];
